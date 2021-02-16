@@ -1,4 +1,5 @@
 import '../styles/globals.css';
+
 // import '../utils//fontawesome';
 
 function MyApp({Component, pageProps}) {

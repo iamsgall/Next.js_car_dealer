@@ -1,10 +1,12 @@
 import firebase from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/firestore';
+import 'firebase/storage';
 
-const firebaseConfig = {
+export const firebaseConfig = {
   apiKey: 'AIzaSyDyOkXW8GDaNIWNocGmdrrd75HnzqYjq8w',
   authDomain: 'car-dealer-9572b.firebaseapp.com',
+  databaseURL: 'https://car-dealer-9572b-default-rtdb.firebaseio.com',
   projectId: 'car-dealer-9572b',
   storageBucket: 'car-dealer-9572b.appspot.com',
   messagingSenderId: '378755730703',
@@ -20,5 +22,5 @@ try {
 }
 export const auth = firebase.auth();
 export const db = firebase.firestore();
-
+export const store11 = firebase.storage()
 // export default auth;

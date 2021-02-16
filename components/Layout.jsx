@@ -29,9 +29,20 @@ export default function Layout({title, children, description}) {
         <meta name='description' content={description} />
         <link rel='shortcut icon' href='/images/favicon.ico' />
       </Head>
-      <Navbar />
-      <div className='container'>{children}</div>
-      <Footer />
+
+      <div className='outer'>
+        <Navbar />
+        <div className='container-fluid'>{children}</div>
+        {/* <Footer /> */}
+      </div>
+
+      <style jsx>{`
+        .outer {
+          display: flex;
+          flex-flow: column;
+          height: 100%;
+        }
+      `}</style>
     </>
   );
 }

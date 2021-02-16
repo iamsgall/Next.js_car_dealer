@@ -1,6 +1,10 @@
 import React from 'react';
-import Layout from '../../components/Layout';
+import dynamic from 'next/dynamic';
 
-export default function dashboard() {
-  return <Layout title='test' description='test'></Layout>;
+const Admin = dynamic(() => import('../../components/dashboard/Admin'), {
+  ssr: false,
+});
+
+export default function Dashboard() {
+  return <Admin />;
 }

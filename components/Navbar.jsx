@@ -80,6 +80,11 @@ export default function Navbar() {
             </div>
           </div>
         </div>
+        <style jsx>{`
+          .navbar {
+            height: 100%;
+          }
+        `}</style>
       </nav>
     );
   }
