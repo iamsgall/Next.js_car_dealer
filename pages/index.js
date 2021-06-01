@@ -15,12 +15,7 @@ export default function Home() {
     <Layout title='test' description='test'>
       <div className={classes.root}>
         <Grid container align='center'>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente
-            dolor, quia doloribus nihil dignissimos esse accusamus aliquid eaque
-            delectus debitis sed at vitae corporis explicabo iste ex eius
-            reiciendis. Cumque.
-          </p>
+          <CardCarContainer />
         </Grid>
       </div>
     </Layout>
