@@ -1,26 +1,24 @@
-import firebase from 'firebase/app';
-import 'firebase/auth';
-import 'firebase/firestore';
-import 'firebase/storage';
+import firebase from 'firebase/app'
+import 'firebase/auth'
+import 'firebase/firestore'
+import 'firebase/storage'
 
 export const firebaseConfig = {
-  apiKey: 'AIzaSyDyOkXW8GDaNIWNocGmdrrd75HnzqYjq8w',
-  authDomain: 'car-dealer-9572b.firebaseapp.com',
-  databaseURL: 'https://car-dealer-9572b-default-rtdb.firebaseio.com',
-  projectId: 'car-dealer-9572b',
-  storageBucket: 'car-dealer-9572b.appspot.com',
-  messagingSenderId: '378755730703',
-  appId: '1:378755730703:web:3ac985845e609a3e84c27a',
-};
+  apiKey: 'AIzaSyBqSbmH2bKbgJJ4JZDvsfil_jpMzH_UMzA',
+  authDomain: 'cardealer-f17ff.firebaseapp.com',
+  projectId: 'cardealer-f17ff',
+  storageBucket: 'cardealer-f17ff.appspot.com',
+  messagingSenderId: '817071927327',
+  appId: '1:817071927327:web:87f83058af538a81c8a52a',
+}
 
 try {
-  firebase.initializeApp(firebaseConfig);
+  firebase.initializeApp(firebaseConfig)
 } catch (error) {
   if (!/already exists/.test(error.message)) {
-    console.error('Firebase initialization error', error.stack);
+    console.error('Firebase initialization error', error.stack)
   }
 }
-export const auth = firebase.auth();
-export const db = firebase.firestore();
-export const store11 = firebase.storage()
-// export default auth;
+export const auth = firebase.auth()
+export const db = firebase.firestore()
+export const store = firebase.storage()
