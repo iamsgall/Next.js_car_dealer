@@ -13,7 +13,7 @@ const LogoutBtn = forwardRef((prop, ref) => {
     auth
       .signOut()
       .then(() => {
-        console.log('logout')
+        // console.log('logout')
         logout()
         router.push('/')
       })

@@ -25,66 +25,60 @@ import {
 } from 'react-admin'
 import { Typography, Box, Toolbar } from '@material-ui/core'
 
-export const CarsList = props => {
+export const SoapsList = props => {
   return (
     <List {...props}>
       <Datagrid rowClick='edit'>
-        <TextField source='brand' />
-        <TextField source='model' />
-        <TextField source='series' />
-        <TextField source='generation' />
-        <TextField source='year' />
-        <TextField source='type_car' />
+        <TextField source='id' />
+        <TextField source='name' />
+        <TextField source='type' />
         <TextField source='color' />
-        <TextField source='engineering' />
-        <TextField source='fuel_type' />
-        <TextField source='transmission' />
-        <TextField source='miles' />
-        <TextField source='price_before' />
+        <TextField source='quantity' />
         <TextField source='price_current' />
-        <BooleanField source='available' />
+        <TextField source='price_before' />
+        <TextField source='available' />
         <ImageField source={'pictures.0.src'} label='Pictures' />
       </Datagrid>
     </List>
   )
 }
 
-export const CarEdit = props => {
+export const SoapEdit = props => {
   const notify = useNotify()
   const refresh = useRefresh()
   const redirect = useRedirect()
 
   const onSuccess = () => {
-    notify(`Car edited successfully`)
-    redirect('/cars')
+    notify(`Soap edited successfully`)
+    redirect('/soaps')
     refresh()
   }
   return (
     <Edit {...props} onSuccess={onSuccess}>
-      <CarForm />
+      <SoapForm />
     </Edit>
   )
 }
 
-export const CarCreate = props => {
+export const SoapCreate = props => {
   const notify = useNotify()
   const refresh = useRefresh()
   const redirect = useRedirect()
 
   const onSuccess = () => {
-    notify('Car saved successfully')
-    redirect('/cars')
+    notify('Soap saved successfully')
+    redirect('/soaps')
     refresh()
   }
 
   return (
     <Create {...props} onSuccess={onSuccess}>
-      <CarForm />
+      <SoapForm />
     </Create>
   )
 }
 
-const CarForm = props => (
+const SoapForm = props => (
   <FormWithRedirect
     {...props}
     render={formProps => (
@@ -99,97 +93,68 @@ const CarForm = props => (
 
               <Box display='flex'>
                 <Box flex={1} mr='0.5em'>
-                  <AutocompleteInput
-                    source='brand'
-                    choices={[
-                      { id: 'acura', name: 'Acura' },
-                      { id: 'alfa romeo', name: 'Alfa Romeo' },
-                      { id: 'audi', name: 'Audi' },
-                      { id: 'bmw', name: 'BMW' },
-                      { id: 'buick', name: 'Buick' },
-                      { id: 'cadillac', name: 'Cadillac' },
-                      { id: 'chevrolet', name: 'Chevrolet' },
-                      { id: 'chrysler', name: 'Chrysler' },
-                      { id: 'dodge', name: 'Dodge' },
-                      { id: 'fiat', name: 'Fiat' },
-                      { id: 'ford', name: 'Ford' },
-                      { id: 'genesis', name: 'Genesis' },
-                      { id: 'gmc', name: 'GMC' },
-                      { id: 'honda', name: 'Honda' },
-                      { id: 'hyundai', name: 'Hyundai' },
-                      { id: 'infiniti', name: 'Infiniti' },
-                      { id: 'jaguar', name: 'Jaguar' },
-                      { id: 'jeep', name: 'Jeep' },
-                      { id: 'kia', name: 'Kia' },
-                      { id: 'land rover', name: 'Land Rover' },
-                      { id: 'lexus', name: 'Lexus' },
-                      { id: 'lincoln', name: 'Lincoln' },
-                      { id: 'lotus', name: 'Lotus' },
-                      { id: 'maserati', name: 'Maserati' },
-                      { id: 'mazda', name: 'Mazda' },
-                      { id: 'mercedes benz', name: 'Mercedes-Benz' },
-                      { id: 'mini', name: 'MINI' },
-                      { id: 'mitsubishi', name: 'Mitsubishi' },
-                      { id: 'nissan', name: 'Nissan' },
-                      { id: 'porsche', name: 'Porsche' },
-                      { id: 'ram', name: 'Ram' },
-                      { id: 'subaru', name: 'Subaru' },
-                      { id: 'toyota', name: 'Toyota' },
-                      { id: 'volkswagen', name: 'Volkswagen' },
-                      { id: 'volvo', name: 'Volvo' },
-                    ]}
-                    fullWidth
-                    validate={[required()]}
-                  />
+                  <TextInput source='id' fullWidth validate={[required()]} />
                 </Box>
 
                 <Box flex={1} ml='0.5em'>
-                  <TextInput source='model' fullWidth validate={[required()]} />
+                  <TextInput source='name' fullWidth validate={[required()]} />
                 </Box>
               </Box>
               <Box display='flex'>
                 <Box flex={1} mr='0.5em'>
-                  <TextInput
-                    source='series'
-                    fullWidth
+                  <AutocompleteInput
+                    source='type'
                     validate={[required()]}
+                    fullWidth
+                    choices={[
+                      { id: 'hard soap', name: 'Hard soap' },
+                      { id: 'soft soaps', name: 'Soft soaps' },
+                      { id: 'moisturizing soaps', name: 'Moisturizing soaps' },
+                      { id: 'common soaps', name: 'Common soaps' },
+                      {
+                        id: 'dermatological soaps',
+                        name: 'Dermatological soaps',
+                      },
+                      { id: 'natural soaps', name: 'Natural soaps' },
+                      { id: 'mild soaps', name: 'Mild soaps' },
+                      { id: 'therapeutic soaps', name: 'Therapeutic soaps' },
+                      { id: 'liquid soaps', name: 'Liquid soaps' },
+                      { id: 'glycerin soaps', name: 'Glycerin soaps' },
+                      { id: 'milk soap', name: 'Milk soap' },
+                      { id: 'oat soap', name: 'Oat soap' },
+                      { id: 'nacre shell soap', name: 'Nacre shell soap' },
+                      { id: 'honey soap', name: 'Honey soap' },
+                      { id: 'bar soaps', name: 'Bar soaps' },
+                      { id: 'medicated soaps', name: 'Medicated soaps' },
+                      { id: 'blue soap', name: 'Blue soap' },
+                      { id: 'children soaps', name: 'Children soaps' },
+                      { id: 'neutral soaps', name: 'Neutral soaps' },
+                      { id: 'scented soaps', name: 'Scented soaps' },
+                      { id: 'marseille soap', name: 'Marseille soap' },
+                      { id: 'astringent soaps', name: 'Astringent soaps' },
+                      { id: 'shaving soap', name: 'Shaving soap' },
+                      { id: 'exfoliating soaps', name: 'Exfoliating soaps' },
+                    ]}
                   />
                 </Box>
 
                 <Box flex={1} ml='0.5em'>
-                  <TextInput
-                    source='generation'
-                    fullWidth
-                    validate={[required()]}
-                  />
-                </Box>
-              </Box>
-              <Box display='flex'>
-                <Box flex={1} mr='0.5em'>
-                  <TextInput
-                    source='year'
-                    type='number'
-                    fullWidth
-                    validate={[required()]}
-                  />
-                </Box>
-                <Box flex={2} ml='0.5em'>
                   <AutocompleteInput
-                    source='type_car'
-                    choices={[
-                      { id: 'convertibles', name: 'Convertibles' },
-                      { id: 'coupes', name: 'Coupes' },
-                      { id: 'SUVs', name: 'SUVs' },
-                      { id: 'Sedans', name: 'Sedans' },
-                      { id: 'trucks', name: 'Trucks' },
-                      { id: 'vans', name: 'Vans' },
-                      { id: 'wagons', name: 'Wagons' },
-                      { id: 'hatchbacks', name: 'Hatchbacks' },
-                      { id: 'hybrids', name: 'Hybrids' },
-                      { id: 'electrics', name: 'Electrics' },
-                    ]}
-                    fullWidth
+                    source='color'
                     validate={[required()]}
+                    fullWidth
+                    choices={[
+                      { id: 'black', name: 'Black' },
+                      { id: 'red', name: 'Red' },
+                      { id: 'green', name: 'Green' },
+                      { id: 'yellow', name: 'Yellow' },
+                      { id: 'blue', name: 'Blue' },
+                      { id: 'magenta', name: 'Magenta' },
+                      { id: 'cyan', name: 'Cyan' },
+                      { id: 'white', name: 'White' },
+                      { id: 'gray', name: 'Gray' },
+                      { id: 'diverse', name: 'Diverse' },
+                    ]}
                   />
                 </Box>
               </Box>
@@ -202,13 +167,13 @@ const CarForm = props => (
               <Box display='flex'>
                 <Box flex={1} mr='0.5em'>
                   <TextInput
-                    source='miles'
+                    source='price_current'
                     type='number'
                     fullWidth
                     validate={[required()]}
                   />
                 </Box>
-                <Box flex={1} mr='0.5em'>
+                <Box flex={1} ml='0.5em'>
                   <TextInput
                     source='price_before'
                     type='number'
@@ -219,12 +184,13 @@ const CarForm = props => (
 
                 <Box flex={1} ml='0.5em'>
                   <TextInput
-                    source='price_current'
+                    source='quantity'
                     type='number'
                     fullWidth
                     validate={[required()]}
                   />
                 </Box>
+
                 <Box flex={1} ml='0.5em'>
                   <NullableBooleanInput
                     label='Available'
@@ -248,84 +214,7 @@ const CarForm = props => (
             </Box>
 
             <Box flex={1} ml='1em'>
-              <Typography variant='h6' gutterBottom>
-                Characteristics
-              </Typography>
-              <Box display='flex'>
-                <Box flex={1} mr='0.5em'>
-                  <AutocompleteInput
-                    source='color'
-                    validate={[required()]}
-                    choices={[
-                      { id: 'black', name: 'Black' },
-                      { id: 'red', name: 'Red' },
-                      { id: 'green', name: 'Green' },
-                      { id: 'yellow', name: 'Yellow' },
-                      { id: 'blue', name: 'Blue' },
-                      { id: 'magenta', name: 'Magenta' },
-                      { id: 'cyan', name: 'Cyan' },
-                      { id: 'white', name: 'White' },
-                      { id: 'gray', name: 'Gray' },
-                    ]}
-                  />
-                </Box>
-
-                <Box flex={1} mr='0.5em'>
-                  <AutocompleteInput
-                    source='engineering'
-                    validate={[required()]}
-                    choices={[
-                      { id: '3', name: '3' },
-                      { id: '4', name: '4' },
-                      { id: '5', name: '5' },
-                      { id: '6', name: '6' },
-                      { id: '8', name: '8' },
-                    ]}
-                  />
-                </Box>
-              </Box>
-              <Box display='flex'>
-                <Box flex={1} mr='0.5em'>
-                  <AutocompleteInput
-                    source='fuel_type'
-                    validate={[required()]}
-                    choices={[
-                      { id: 'gasoline 98', name: 'Gasoline 98' },
-                      { id: 'gasoline 95', name: 'Gasoline 95' },
-                      { id: 'bioethanol', name: 'Bioethanol' },
-                      { id: 'normal diesel', name: 'Normal Diesel' },
-                      { id: 'plus diesel', name: 'Plus Diesel' },
-                      { id: 'diesel 1D 2D 4D', name: 'Diesel 1D, 2D, 4D' },
-                      { id: 'natural_gas', name: 'Natural Gas' },
-                    ]}
-                  />
-                </Box>
-
-                <Box flex={1} mr='0.5em'>
-                  <AutocompleteInput
-                    source='transmission'
-                    validate={[required()]}
-                    choices={[
-                      {
-                        id: 'manual transmission',
-                        name: 'Manual transmission',
-                      },
-                      {
-                        id: 'automatic transmission',
-                        name: 'Automatic transmission',
-                      },
-                      {
-                        id: 'continuously variable transmission (CVT)',
-                        name: 'Continuously variable transmission (CVT)',
-                      },
-                      {
-                        id: 'semi automatic and dual clutch transmissions',
-                        name: 'Semi-automatic and dual-clutch transmissions',
-                      },
-                    ]}
-                  />
-                </Box>
-              </Box>
+              <Box flex={1} mr='0.5em'></Box>
             </Box>
           </Box>
         </Box>

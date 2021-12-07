@@ -1,3 +1,21 @@
+// import { initializeApp } from 'firebase/app'
+// import { getFirestore } from 'firebase/firestore'
+// import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth'
+
+// export const firebaseConfig = {
+// apiKey: 'AIzaSyDtTIvukdgFY8efe9V2z9WWbGNd1XDDcpg',
+// authDomain: 'virgonaturalcreations-838a6.firebaseapp.com',
+// projectId: 'virgonaturalcreations-838a6',
+// storageBucket: 'virgonaturalcreations-838a6.appspot.com',
+// messagingSenderId: '869000372604',
+// appId: '1:869000372604:web:ce92bd25df21036b2c84f9',
+// }
+
+// const app = initializeApp(firebaseConfig)
+
+// export const auth = getAuth(app)
+// export const db = getFirestore(app)
+
 import firebase from 'firebase/app'
 import 'firebase/auth'
 import 'firebase/firestore'
@@ -5,11 +23,12 @@ import 'firebase/storage'
 
 export const firebaseConfig = {
   apiKey: 'AIzaSyBqSbmH2bKbgJJ4JZDvsfil_jpMzH_UMzA',
-  authDomain: 'cardealer-f17ff.firebaseapp.com',
-  projectId: 'cardealer-f17ff',
-  storageBucket: 'cardealer-f17ff.appspot.com',
-  messagingSenderId: '817071927327',
-  appId: '1:817071927327:web:87f83058af538a81c8a52a',
+  apiKey: 'AIzaSyDtTIvukdgFY8efe9V2z9WWbGNd1XDDcpg',
+  authDomain: 'virgonaturalcreations-838a6.firebaseapp.com',
+  projectId: 'virgonaturalcreations-838a6',
+  storageBucket: 'virgonaturalcreations-838a6.appspot.com',
+  messagingSenderId: '869000372604',
+  appId: '1:869000372604:web:ce92bd25df21036b2c84f9',
 }
 
 try {

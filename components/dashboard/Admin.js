@@ -6,12 +6,11 @@ import {
   FirebaseDataProvider,
   FirebaseAuthProvider,
 } from 'react-admin-firebase'
-import CarIcon from '@material-ui/icons/DirectionsCar'
+import SoapIcon from '@mui/icons-material/Soap'
 
-import { CarsList, CarEdit, CarCreate } from './cars.js'
+import { SoapsList, SoapEdit, SoapCreate } from './cars.js'
 import MyLogoutBtn from './MyLogoutBtn'
 import MyLayout from './MyLayout'
-// import { AuthProvider } from './authProvider.ts'
 
 export default function dashboard() {
   const options = {}
@@ -29,12 +28,12 @@ export default function dashboard() {
     getPermissions: params => Promise.resolve(),
   }
 
-  console.log(
-    'current_user',
-    auth.currentUser.uid,
-    auth.currentUser.displayName,
-    auth.currentUser.photoURL
-  )
+  // console.log(
+  //   'current_user',
+  //   auth.currentUser.uid,
+  //   auth.currentUser.displayName,
+  //   auth.currentUser.photoURL
+  // )
 
   return (
     <Admin
@@ -46,11 +45,11 @@ export default function dashboard() {
       layout={MyLayout}
     >
       <Resource
-        name='cars'
-        list={CarsList}
-        icon={CarIcon}
-        create={CarCreate}
-        edit={CarEdit}
+        name='soaps'
+        list={SoapsList}
+        icon={SoapIcon}
+        create={SoapCreate}
+        edit={SoapEdit}
       />
     </Admin>
   )

@@ -24,9 +24,7 @@ export default function MyAppBar(props) {
         color='inherit'
         className={classes.title}
         id='react-admin-title'
-      >
-        Your Website
-      </Typography>
+      ></Typography>
       {/* <Logo/> */}
       <span className={classes.spacer}></span>
     </AppBar>

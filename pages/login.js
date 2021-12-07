@@ -14,13 +14,14 @@ import Typography from '@material-ui/core/Typography'
 import { makeStyles } from '@material-ui/core/styles'
 import { useRouter } from 'next/router'
 import { auth } from '../config/fire-config'
+import { signInWithEmailAndPassword } from 'firebase/auth'
 
 function Copyright() {
   return (
     <Typography variant='body2' color='textSecondary' align='center'>
       {'Copyright © '}
-      <Link color='inherit' href='https://material-ui.com/'>
-        Your Website
+      <Link color='inherit' href='#'>
+        virgonaturalcreations.com
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -34,7 +35,7 @@ const useStyles = makeStyles(theme => ({
   },
   image: {
     backgroundImage:
-      'url(https://images.creativemarket.com/0.1.0/ps/6490511/1821/1215/m1/fpnw/wm0/glowing-neon-concept-car-prev-01-.jpg?1559662690&s=403e497e83486438ff7347a9372efbb8)',
+      'url(https://www.wallpapertip.com/wmimgs/242-2428868_soap-wallpaper.jpg)',
     backgroundRepeat: 'no-repeat',
     backgroundColor:
       theme.palette.type === 'light'
@@ -91,7 +92,7 @@ export default function SignInSide() {
     auth
       .signInWithEmailAndPassword(user.email, user.password)
       .then(user => {
-        console.log(user)
+        // console.log(user)
         router.push('/dashboard')
       })
       .catch(err => {

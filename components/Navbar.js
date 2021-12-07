@@ -8,8 +8,13 @@ import Typography from '@material-ui/core/Typography'
 import Button from '@material-ui/core/Button'
 import IconButton from '@material-ui/core/IconButton'
 import MenuIcon from '@material-ui/icons/Menu'
-import { AccountCircleRounded, ExitToAppOutlined } from '@material-ui/icons'
+import {
+  AccountCircleRounded,
+  ExitToAppOutlined,
+  Phone,
+} from '@material-ui/icons'
 import Link from 'next/link'
+import Image from 'next/image'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -18,6 +23,10 @@ const useStyles = makeStyles(theme => ({
 
   title: {
     flexGrow: 1,
+    marginLeft: 4,
+  },
+  contact: {
+    marginRight: 24,
   },
   btnLogin: {
     display: user => {
@@ -49,7 +58,7 @@ export default function Navbar() {
     auth
       .signOut()
       .then(() => {
-        console.log('logout')
+        // console.log('logout')
         router.push('/')
       })
       .catch(err => {
@@ -74,10 +83,14 @@ export default function Navbar() {
     <div className={classes.root}>
       <AppBar position='static'>
         <Toolbar>
+          <Image src='/soap_icon.png' width={48} height={48} alt='soap icon' />
           <Typography variant='h6' className={classes.title}>
             <Link href='/'>
-              <a>Your Website</a>
+              <a> Virgo Natural Creations</a>
             </Link>
+          </Typography>
+          <Typography variant='h6' className={classes.contact}>
+            Contact Us (555) 555 5555
           </Typography>
           {!user ? (
             <Button

@@ -8,7 +8,7 @@ const Admin = dynamic(() => import('../components/dashboard/Admin.js'), {
 
 export default function Dashboard() {
   auth.onAuthStateChanged(user => {
-    console.log(user)
+    // console.log(user)
   })
 
   return <Admin />
